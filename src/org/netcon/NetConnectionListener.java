@@ -99,7 +99,8 @@ public abstract class NetConnectionListener extends Thread
 					if (fConnection != null)
 					{
 						fConnection.connectionNumber += 1;
-						if (((fConnection.connectionNumber > _config.TCP_FAST_CONNECTION_LIMIT) && ((System.currentTimeMillis() - fConnection.lastConnection) < _config.TCP_NORMAL_CONNECTION_TIME)) || ((System.currentTimeMillis() - fConnection.lastConnection) < _config.TCP_FAST_CONNECTION_TIME) || (fConnection.connectionNumber > _config.TCP_MAX_CONNECTION_PER_IP))
+						if (((fConnection.connectionNumber > _config.TCP_FAST_CONNECTION_LIMIT) && ((System.currentTimeMillis() - fConnection.lastConnection) < _config.TCP_NORMAL_CONNECTION_TIME)) || ((System.currentTimeMillis() - fConnection.lastConnection) < _config.TCP_FAST_CONNECTION_TIME)
+							|| (fConnection.connectionNumber > _config.TCP_MAX_CONNECTION_PER_IP))
 						{
 							fConnection.lastConnection = System.currentTimeMillis();
 							fConnection.connectionNumber -= 1;

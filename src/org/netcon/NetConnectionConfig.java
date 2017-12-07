@@ -25,8 +25,16 @@ public final class NetConnectionConfig
 	{
 		final Properties settings = new Properties();
 		final InputStream is = new FileInputStream(new File(configFilePath));
-		settings.load(is);
-		is.close();
+		
+		try
+		{
+			settings.load(is);
+			is.close();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 		
 		INITIAL_CRYPT = settings.getProperty("InitialCrypt", "_;v.]05-31!|+-%xT!^[$\00");
 		
